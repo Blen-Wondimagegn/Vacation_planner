@@ -1,54 +1,48 @@
-//package com.example.Vacation.Planner.service;
-//
-//
-//import com.example.Vacation.Planner.ProductRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
-//
-//import java.util.List;
-//import java.util.Optional;
-//public class VacationService {
-//
-//
-//package org.rma.springmvcdemo.service;
-//
-//
-//
-//
-//@Service
-//public class ProductService {
-//
-//    @Autowired
-//    private ProductRepository productRepository;
-//
-//    public List<Product> getAllProducts() {
-//        return productRepository.findAll();
-//    }
-//
-//
-//
-//    public Optional<Product> getProductById(Long id) {
-//        return productRepository.findById(id);
-//    }
-//
-//    public Product createProduct(Product product) {
-//        return productRepository.save(product);
-//    }
-//
-//    public void deleteProduct(Long id) {
-//        productRepository.deleteById(id);
-//    }
-//
-//    public Product updateProduct(Long id, Product updatedProduct) {
-//        return productRepository.findById(id)
-//                .map(product -> {
-//                    product.setMake(updatedProduct.getMake());
-//                    product.setModel(updatedProduct.getModel());
-//                    product.setTrim(updatedProduct.getTrim());
-//                    product.setImgUrl(updatedProduct.getImgUrl());
-//                    product.setPrice(updatedProduct.getPrice());
-//                    return productRepository.save(product);
-//                })
-//                .orElseThrow(() -> new RuntimeException("Product not found"));
-//    }
-//}
+package com.example.Vacationplanner.service;
+
+
+
+import com.example.Vacationplanner.model.Vacation;
+import com.example.Vacationplanner.repository.VacationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class VacationService {
+
+    @Autowired
+    private VacationRepository vacationrepository;
+
+    public List<Vacation> getAllVacations() {
+        return vacationrepository.findAll();
+    }
+
+    public Optional<Vacation> getVacationById(Long id) {
+        return vacationrepository.findById(id);
+    }
+
+    public Vacation createVacation(Vacation vacation) {
+        return vacationrepository.save(vacation);
+    }
+
+    public void deleteVacation(Long id) {
+        vacationrepository.deleteById(id);
+    }
+
+    public Vacation updateVacation(Long id, Vacation updatedVacation) {
+        return vacationrepository.findById(id)
+                .map(vacation -> {
+                    vacation.setTitle(updatedVacation.getTitle());
+                    vacation.setHotel(updatedVacation.getHotel());
+                    vacation.setStartDate(updatedVacation.getStartDate());
+                    vacation.setEndDate(updatedVacation.getEndDate());
+                    vacation.setDestination(updatedVacation.getDestination());
+                    return vacationrepository.save(vacation);
+                })
+                .orElseThrow(() -> new RuntimeException("Vacation not found"));
+    }
+}
+

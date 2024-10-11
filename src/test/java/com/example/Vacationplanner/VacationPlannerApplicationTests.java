@@ -1,4 +1,4 @@
-package com.example.Vacation.Planner;
+package com.example.Vacationplanner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

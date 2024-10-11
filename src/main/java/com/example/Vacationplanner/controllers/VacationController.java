@@ -1,64 +1,62 @@
-package com.example.Vacation.Planner.controllers;
-import ch.qos.logback.core.model.Model;
-import com.example.Vacation.Planner.model.Vacation;
+package com.example.Vacationplanner.controllers;
+import org.springframework.ui.Model;
+import com.example.Vacationplanner.model.Vacation;
+import com.example.Vacationplanner.service.VacationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/vacations")
 public class VacationController {
-        @GetMapping("/home")
-        public String home()  {
-            return "home"; // This will return the "home.html" or "home.jsp" view
-        }
+
     @Autowired
-    private ProductService productService;
+    private VacationService vacationService;
 
 
     @GetMapping
-    public String getAllProducts(Model model) {
-        List<Vacation> products = productService.getAllProducts();
-        model.addAttribute("products", products);
+    public String getAllVacations(Model model) {
+        List<Vacation> vacations = vacationService.getAllVacations();
+        model.addAttribute("vacations", vacations);
         return "vacation-list";
     }
 
     @GetMapping("/new")
-    public String showCreateProductForm(Model model) {
-        Product product = new Product();
-        model.addAttribute("product", product);
-        return "product-form";
+    public String showCreateVacationForm(Model model) {
+        Vacation vacation = new Vacation();
+        model.addAttribute("vacation", vacation);
+        return "vacation-form";
     }
 
 
-//    @GetMapping("/edit/{id}")
-//    public String showEditProductForm(@PathVariable Long id, Model model) {
-//        Optional<Product> optionalProduct = productService.getProductById(id);
-//        if (optionalProduct.isPresent()) {
-//            model.addAttribute("product", optionalProduct.get());
-//        } else {
-//            return "redirect:/products";
-//        }
-//        return "product-form";
-//    }
-//
-//    @PostMapping("/save")
-//    public String saveProduct(@ModelAttribute("product") Product product) {
-//        if (product.getId() != null) {
-//            productService.updateProduct(product.getId(), product);
-//        } else {
-//            productService.createProduct(product);
-//        }
-//        return "redirect:/products";
-//    }
-//
-//    @GetMapping("/delete/{id}")
-//    public String deleteProduct(@PathVariable Long id) {
-//        productService.deleteProduct(id);
-//        return "redirect:/products";
-//    }
+    @GetMapping("/edit/{id}")
+    public String showEditVacationForm(@PathVariable Long id, Model model) {
+        Optional<Vacation> optionalVacation = vacationService.getVacationById(id);
+        if (optionalVacation.isPresent()) {
+            model.addAttribute("vacation", optionalVacation.get());
+        } else {
+            return "redirect:/vacations";
+        }
+        return "vacation-form";
+    }
+
+    @PostMapping("/save")
+    public String saveProduct(@ModelAttribute("vacation") Vacation vacation) {
+        if (vacation.getId() != null) {
+            vacationService.updateVacation(vacation.getId(), vacation);
+        } else {
+            vacationService.createVacation(vacation);
+        }
+        return "redirect:/vacations";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteVacation(@PathVariable Long id) {
+        vacationService.deleteVacation(id);
+        return "redirect:/vacations";
+    }
 
 }

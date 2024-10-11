@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <title>Vacations List</title>
 </head>
 <body>
-$END$
+<h1>Vacations List</h1>
+<a th:href="@{/vacations/new}">Create New Vacations</a>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Hotel</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Destination</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vacation : ${vacations}">
+        <td th:text="${vacation.title}">Vacation Name</td>
+        <td th:text="${vacation.hotel}">Vacation Hotel</td>
+        <td th:text="${vacation.startDate}">Vacation Start Date</td>
+        <td th:text="${vacation.endDate}">Vacation End Date</td>
+        <td th:text="${vacation.destination}">Vacation Destination</td>
+        <td>
+            <a th:href="@{/vacations/edit/{id}(id=${vacation.id})}">Edit</a>
+            <a th:href="@{/vacations/delete/{id}(id=${vacation.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
