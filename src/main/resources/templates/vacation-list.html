@@ -5,8 +5,16 @@
 </head>
 <body>
 <h1>Vacations List</h1>
+
+<form th:action="@{/vacations/search}" method="GET">
+    <input type="text" name="keyword" size = 50 placeholder="Search by title" />
+    <button type="submit">Search</button>
+</form>
+
 <a th:href="@{/vacations/new}">Create New Vacations</a>
+
 <table>
+
     <thead>
     <tr>
         <th>Title</th>

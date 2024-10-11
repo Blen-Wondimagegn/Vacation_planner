@@ -31,6 +31,9 @@ public class VacationService {
     public void deleteVacation(Long id) {
         vacationrepository.deleteById(id);
     }
+    public List<Vacation> searchVacations(String keyword) {
+        return vacationrepository.findByTitleContaining(keyword);
+    }
 
     public Vacation updateVacation(Long id, Vacation updatedVacation) {
         return vacationrepository.findById(id)

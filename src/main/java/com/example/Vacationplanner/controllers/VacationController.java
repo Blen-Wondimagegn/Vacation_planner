@@ -59,4 +59,13 @@ public class VacationController {
         return "redirect:/vacations";
     }
 
+    @GetMapping("/search")
+    public String searchVacations(@RequestParam("keyword") String keyword, Model model) {
+        List<Vacation> vacations = vacationService.searchVacations(keyword);
+        model.addAttribute("vacations", vacations);
+        return "vacation-list";
+    }
+
+
+
 }
