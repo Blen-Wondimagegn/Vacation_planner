@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Excursions for Vacation</title>
+</head>
+<body>
+<h1 th:text="'Excursions for Vacation: ' + ${vacation.title}"></h1>
+
+<a th:href="@{/vacations}">Back to Vacations List</a>
+<a th:href="@{'/vacations/' + ${vacation.id} + '/excursions/new'}">Add New Excursion</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="excursion : ${excursions}">
+        <td th:text="${excursion.title}">Excursion Title</td>
+        <td th:text="${excursion.date}">Excursion Date</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

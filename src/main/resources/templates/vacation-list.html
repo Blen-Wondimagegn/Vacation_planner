@@ -7,14 +7,13 @@
 <h1>Vacations List</h1>
 
 <form th:action="@{/vacations/search}" method="GET">
-    <input type="text" name="keyword" size = 50 placeholder="Search by title" />
+    <input type="text" name="keyword" size="50" placeholder="Search by title" />
     <button type="submit">Search</button>
 </form>
 
-<a th:href="@{/vacations/new}">Create New Vacations</a>
+<a th:href="@{/vacations/new}">Create New Vacation</a>
 
 <table>
-
     <thead>
     <tr>
         <th>Title</th>
@@ -22,11 +21,16 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Destination</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="vacation : ${vacations}">
-        <td th:text="${vacation.title}">Vacation Name</td>
+        <td>
+            <a th:href="@{/vacations/{id}/excursions(id=${vacation.id})}" th:text="${vacation.title}">
+                Vacation Name
+            </a>
+        </td>
         <td th:text="${vacation.hotel}">Vacation Hotel</td>
         <td th:text="${vacation.startDate}">Vacation Start Date</td>
         <td th:text="${vacation.endDate}">Vacation End Date</td>

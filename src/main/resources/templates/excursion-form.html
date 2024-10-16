@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Excursion</title>
+</head>
+<body>
+<h1>Add New Excursion</h1>
+
+<form th:action="@{/vacations/{vacationId}/excursions(vacationId=${vacationId})}" th:object="${excursion}" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" th:field="*{title}" />
+
+    <label for="date">Date:</label>
+    <input type="text" id="date" th:field="*{date}" />
+
+    <button type="submit">Save Excursion</button>
+</form>
+
+<a th:href="@{/vacations/{vacationId}/excursions(vacationId=${vacationId})}">Back to Excursions</a>
+
+</body>
+</html>
