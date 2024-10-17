@@ -1,7 +1,7 @@
-package com.example.Vacationplanner.controllers;
+package com.example.vacationplanner.controllers;
 import org.springframework.ui.Model;
-import com.example.Vacationplanner.model.Vacation;
-import com.example.Vacationplanner.service.VacationService;
+import com.example.vacationplanner.model.Vacation;
+import com.example.vacationplanner.service.VacationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

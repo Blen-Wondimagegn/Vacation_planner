@@ -1,9 +1,8 @@
-package com.example.Vacationplanner.service;
+package com.example.vacationplanner.service;
 
 
-
-import com.example.Vacationplanner.model.Vacation;
-import com.example.Vacationplanner.repository.VacationRepository;
+import com.example.vacationplanner.model.Vacation;
+import com.example.vacationplanner.repository.VacationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,4 +47,3 @@ public class VacationService {
                 .orElseThrow(() -> new RuntimeException("Vacation not found"));
     }
 }
-

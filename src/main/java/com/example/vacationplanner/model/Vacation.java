@@ -1,10 +1,10 @@
-package com.example.Vacationplanner.model;
+package com.example.vacationplanner.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -29,13 +29,15 @@ public class Vacation {
     }
 
     public Vacation() {
-        this.id = id;
-        this.title = title;
-        this.hotel = hotel;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.destination = destination;
+        this.id = null;
+        this.title = " ";
+        this.hotel = " ";
+        this.startDate = " ";
+        this.endDate = " ";
+        this.destination = " ";
     }
+    @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Excursion> excursions;
 
     public Long getId() {
         return id;

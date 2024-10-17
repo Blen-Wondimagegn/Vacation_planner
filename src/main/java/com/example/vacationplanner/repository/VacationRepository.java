@@ -1,6 +1,6 @@
-package com.example.Vacationplanner.repository;
+package com.example.vacationplanner.repository;
 
-import com.example.Vacationplanner.model.Vacation;
+import com.example.vacationplanner.model.Vacation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

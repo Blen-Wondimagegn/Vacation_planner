@@ -7,37 +7,41 @@
 <div class="container">
     <h1 th:if="${vacation.id != null}">Edit Vacation</h1>
     <h1 th:if="${vacation.id == null}">Create Vacation</h1>
+    <a th:href="@{'/vacations/' + ${vacation.id} + '/excursions/new'}">Add New Excursion</a>
 
     <form th:action="@{/vacations/save}" th:object="${vacation}" method="post">
         <input type="hidden" th:field="*{id}" />
 
         <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" th:field="*{title}" id="title" placeholder="Enter title" />
+            <input type="text" th:field="*{title}" id="title" placeholder="Enter title" required />
         </div>
 
         <div class="form-group">
             <label for="hotel">Hotel:</label>
-            <input type="text" th:field="*{hotel}" id="hotel" placeholder="Enter Hotel" />
+            <input type="text" th:field="*{hotel}" id="hotel" placeholder="Enter Hotel" required/>
         </div>
 
         <div class="form-group">
             <label for="startDate">Start Date:</label>
-            <input type="date" th:field="*{startDate}" id="startDate" placeholder="Enter start date" />
+            <input type="date" th:field="*{startDate}" id="startDate" placeholder="Enter start date"  required/>
         </div>
 
         <div class="form-group">
             <label for="endDate">End Date:</label>
-            <input type="date" th:field="*{endDate}" id="endDate" placeholder="Enter end date" />
+            <input type="date" th:field="*{endDate}" id="endDate" placeholder="Enter end date"  required/>
         </div>
 
         <div class="form-group">
             <label for="destination">Destination:</label>
-            <input type="text" th:field="*{destination}" id="destination" placeholder="Enter destination" />
+            <input type="text" th:field="*{destination}" id="destination" placeholder="Enter destination"  required/>
         </div>
 
         <button type="submit">Save</button>
     </form>
+    <div th:if="${errorMessage}">
+        <p style="color: red;">[[${errorMessage}]]</p>
+    </div>
 
     <a href="/vacations">Back to Vacation List</a>
 </div>

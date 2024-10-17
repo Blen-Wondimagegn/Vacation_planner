@@ -33,3 +33,4 @@ public class ExcursionService {
         excursionRepository.deleteById(excursionId);
     }
 }
+
