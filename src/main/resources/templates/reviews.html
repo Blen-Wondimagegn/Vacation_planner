@@ -1,0 +1,12 @@
+<html>
+<body>
+<h1>Reviews for Vacation: [[${vacation.title}]]</h1>
+<ul>
+    <li th:each="review : ${reviews}">
+        [[${review.reviewText}]] - [[${review.rating}]]
+    </li>
+</ul>
+<a th:href="@{/vacations/{vacationId}/reviews/new(vacationId=${vacation.id})}">Add Review</a>
+<a th:href="@{/vacations}">Back to Vacations List</a>
+</body>
+</html>

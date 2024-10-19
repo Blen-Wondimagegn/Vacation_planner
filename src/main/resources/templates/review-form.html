@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Add Review for Vacation</h1>
+<form th:action="@{/vacations/{vacationId}/reviews(vacationId=${vacationId})}" th:object="${review}" method="post">
+    <label for="reviewText">Review:</label>
+    <textarea id="reviewText" th:field="*{reviewText}"></textarea>
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" th:field="*{rating}" min="1" max="5" />
+    <button type="submit">Submit</button>
+</form>
+<a th:href="@{/vacations}">Back to Vacations List</a>
+</body>
+</html>
