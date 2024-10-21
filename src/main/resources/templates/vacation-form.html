@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Create or Edit Vacation</title>
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
 <div class="container">
@@ -39,9 +40,7 @@
 
         <button type="submit">Save</button>
     </form>
-    <div th:if="${errorMessage}">
-        <p style="color: red;">[[${errorMessage}]]</p>
-    </div>
+
 
     <a href="/vacations">Back to Vacation List</a>
 </div>

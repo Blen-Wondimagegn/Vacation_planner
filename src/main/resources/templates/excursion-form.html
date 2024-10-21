@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Excursion</title>
+    <link rel="stylesheet" href="/css/form.css">
 </head>
 <body>
 <h1>Add New Excursion</h1>
@@ -18,7 +21,7 @@
     <button type="submit">Save Excursion</button>
 </form>
 
-<a th:href="@{/vacations/{vacationId}/excursions(vacationId=${vacationId})}">Back to Excursions</a>
+<a class="form-a" th:href="@{/vacations/{vacationId}/excursions(vacationId=${vacationId})}">Back to Excursions</a>
 
 </body>
 </html>

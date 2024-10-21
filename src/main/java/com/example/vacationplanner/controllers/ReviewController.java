@@ -1,9 +1,9 @@
-package org.blen.wondimagegn.vacationplanner.controllers;
+package com.example.vacationplanner.controllers;
 
-import org.blen.wondimagegn.vacationplanner.model.Review;
-import org.blen.wondimagegn.vacationplanner.model.Vacation;
-import org.blen.wondimagegn.vacationplanner.service.ReviewService;
-import org.blen.wondimagegn.vacationplanner.service.VacationService;
+import com.example.vacationplanner.model.Review;
+import com.example.vacationplanner.model.Vacation;
+import com.example.vacationplanner.service.ReviewService;
+import com.example.vacationplanner.service.VacationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

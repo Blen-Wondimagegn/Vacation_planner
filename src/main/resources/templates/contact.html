@@ -2,10 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Contact Us</title>
 </head>
 <body>
-<h1>Contact Us</h1>
+
+<header>
+    <div class="logo">
+        <img src="/images/logo.jpeg" alt="Vacation Planner Logo">
+
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/vacations">Vacations</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or inquiries, feel free to reach out to us:</p>
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit" class="get-started">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <div class="footer-content">
+
+    </div>
+</footer>
 
 </body>
 </html>

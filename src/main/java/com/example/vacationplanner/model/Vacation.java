@@ -1,4 +1,4 @@
-package org.blen.wondimagegn.vacationplanner.model;
+package com.example.vacationplanner.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

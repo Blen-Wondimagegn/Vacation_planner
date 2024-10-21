@@ -2,8 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Vacations List</title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
+<header>
+    <div class="logo">
+        <img src="/images/logo.jpeg" alt="Vacation Planner Logo">
+    </div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a  href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
 <h1>Vacations List</h1>
 
 <form th:action="@{/vacations/search}" method="GET">
@@ -21,7 +35,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Destination</th>
-        <th>Actions</th>
+
     </tr>
     </thead>
     <tbody>
@@ -38,9 +52,16 @@
         <td>
             <a th:href="@{/vacations/edit/{id}(id=${vacation.id})}">Edit</a>
             <a th:href="@{/vacations/delete/{id}(id=${vacation.id})}">Delete</a>
+            <a th:href="@{/vacations/{id}/reviews(id=${vacation.id})}">Review</a>
+            <button class="notify-start-date" th:data-start-date="${vacation.startDate}">Notify</button>
         </td>
     </tr>
     </tbody>
 </table>
+<script src="/js/vacationList.js"></script>
+</body>
+<footer>
+
+</footer>
 </body>
 </html>

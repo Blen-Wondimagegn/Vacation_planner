@@ -1,11 +1,13 @@
-package org.blen.wondimagegn.vacationplanner.service;
+package com.example.vacationplanner.service;
 
 
-import org.blen.wondimagegn.vacationplanner.model.Vacation;
-import org.blen.wondimagegn.vacationplanner.repository.VacationRepository;
+import com.example.vacationplanner.model.Vacation;
+import com.example.vacationplanner.repository.VacationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,4 +48,5 @@ public class VacationService {
                 })
                 .orElseThrow(() -> new RuntimeException("Vacation not found"));
     }
+
 }
