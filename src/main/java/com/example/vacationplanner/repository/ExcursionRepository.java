@@ -1,6 +1,6 @@
-package com.example.vacationplanner.repository;
+package org.blen.wondimagegn.vacationplanner.repository;
 
-import com.example.vacationplanner.model.Excursion;
+import org.blen.wondimagegn.vacationplanner.model.Excursion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.example.vacationplanner.controllers;
+package org.blen.wondimagegn.vacationplanner.controllers;
 
-import com.example.vacationplanner.model.Excursion;
-import com.example.vacationplanner.model.Vacation;
-import com.example.vacationplanner.service.ExcursionService;
-import com.example.vacationplanner.service.VacationService;
+import org.blen.wondimagegn.vacationplanner.model.Excursion;
+import org.blen.wondimagegn.vacationplanner.model.Vacation;
+import org.blen.wondimagegn.vacationplanner.service.ExcursionService;
+import org.blen.wondimagegn.vacationplanner.service.VacationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +28,8 @@ public class ExcursionController {
         Optional<Vacation> vacation = vacationService.getVacationById(vacationId);
 
         if (vacation.isEmpty()) {
-            return "redirect:/vacations";  // Redirect if vacation not found
+            return "redirect:/vacations";
         }
-
         List<Excursion> excursions = excursionService.getExcursionsByVacationId(vacationId);
         model.addAttribute("vacation", vacation.get());
         model.addAttribute("excursions", excursions);

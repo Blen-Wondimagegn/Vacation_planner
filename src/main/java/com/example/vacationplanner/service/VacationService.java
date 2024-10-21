@@ -1,8 +1,8 @@
-package com.example.vacationplanner.service;
+package org.blen.wondimagegn.vacationplanner.service;
 
 
-import com.example.vacationplanner.model.Vacation;
-import com.example.vacationplanner.repository.VacationRepository;
+import org.blen.wondimagegn.vacationplanner.model.Vacation;
+import org.blen.wondimagegn.vacationplanner.repository.VacationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

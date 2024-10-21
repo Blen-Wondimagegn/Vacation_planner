@@ -1,10 +1,12 @@
-package com.example.vacationplanner.controllers;
+package org.blen.wondimagegn.vacationplanner.controllers;
+import org.blen.wondimagegn.vacationplanner.service.EmailService;
 import org.springframework.ui.Model;
-import com.example.vacationplanner.model.Vacation;
-import com.example.vacationplanner.service.VacationService;
+import org.blen.wondimagegn.vacationplanner.model.Vacation;
+import org.blen.wondimagegn.vacationplanner.service.VacationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +17,20 @@ public class VacationController {
 
     @Autowired
     private VacationService vacationService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @PostMapping("/notify")
+    public String sendNotification(@RequestParam String startDate, @RequestParam String email, RedirectAttributes redirectAttributes) {
+        try {
+            emailService.sendEmail(email, "Vacation Start Date Notification", "Your vacation starts on: " + startDate);
+            redirectAttributes.addFlashAttribute("message", "Notification sent to " + email);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Failed to send notification: " + e.getMessage());
+        }
+        return "redirect:/vacations";
+    }
 
 
     @GetMapping

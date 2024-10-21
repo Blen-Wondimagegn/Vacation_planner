@@ -1,4 +1,4 @@
-package com.example.vacationplanner;
+package org.blen.wondimagegn.vacationplanner;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

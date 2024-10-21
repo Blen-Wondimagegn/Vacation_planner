@@ -1,9 +1,9 @@
-package com.example.vacationplanner.model;
+package org.blen.wondimagegn.vacationplanner.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+
 import java.util.List;
 
 @Data
@@ -38,6 +38,18 @@ public class Vacation {
     }
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Excursion> excursions;
+
+    @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
+
+    // Getters and Setters for reviews
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     public Long getId() {
         return id;
