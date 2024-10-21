@@ -1,0 +1,98 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9e7e5;
+    color: #333;
+}
+
+
+/* Container for the form */
+.container {
+    width: 40%;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+}
+
+/* Styling for form labels */
+label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Styling for input fields */
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Form group spacing */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Link styling */
+.form-a {
+    text-decoration: none;
+    color: #008b78;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.form-a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
